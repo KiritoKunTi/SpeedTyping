@@ -1,5 +1,5 @@
-const url = 'https://api.quotable.io/random';
-const URL = 'https://type.fit/api/quotes';
+// const url = 'https://api.quotable.io/random';
+const url = 'https://type.fit/api/quotes';
 const quoteDisplay = document.getElementById('quoteDisplay');
 const quoteInput = document.getElementById('quoteInput');
 const timer = document.getElementById('timer');
@@ -28,19 +28,21 @@ quoteInput.addEventListener('input', () => {
     });
 
     if ( correct ) {
-        alert('you did it');
         renderNewQuote();
     }
 });
 
 function getRandomQuote() {
-    return fetch(url)
-        .then(response => response.json())
-        .then(data => data.text);
+    return fetch(url).then(response => response.json());
+}
+
+function getRandomNumber(min, max) {
+    return Math.floor((Math.random() * (max - min)) + min);
 }
 
 async function renderNewQuote() {
-    const quote = await getRandomQuote();
+    const quotes = await getRandomQuote();
+    const quote = quotes[getRandomNumber(0, quotes.length)].text;
     quoteDisplay.innerText = '';
     quoteInput.value = null;
 
