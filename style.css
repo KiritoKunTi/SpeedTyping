@@ -21,6 +21,22 @@ body {
     color: red;
 }
 
+/* .correct-bg {
+    background-color: green;
+} */
+
+.incorrect-bg {
+    position: relative;
+}
+.incorrect-bg::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    background-color: red;
+    width: 100%;
+    height: 1px;
+}
+
 .wrapper {
     min-height: 100vh;
     background-color: #5F0A87;
@@ -38,6 +54,8 @@ body {
     border-radius: .5rem;
 
     background-color: #F6AE2D;
+    font-size: 1.5rem;
+    word-spacing: 3px;
 }
 .timer {
     font-size: 100px;
@@ -55,7 +73,7 @@ body {
     margin: auto;
     padding: .5rem 1rem;
 
-    font-size: 1rem;
+    font-size: inherit;
     background-color: transparent;
     border: 2px solid #c48a1f;
     resize: none;
